@@ -72,7 +72,7 @@ router.delete('/:id', (req, res, next) => {
     .where('id', req.params.id)
     .first()
     .then((row) => {
-      if(!row) return next()
+      if (!row) return next()
       knex('minidiscs')
         .del()
         .where('id', req.params.id)

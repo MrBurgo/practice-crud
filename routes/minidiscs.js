@@ -2,6 +2,10 @@ const express = require('express')
 const knex = require('../knex')
 
 const router = express.Router()
+// CREATING NEW MINIDISC
+router.get('/new', (req, res, next) => {
+  res.render('minidiscs', {})
+})
 // READ ALL records for this table
 router.get('/', (req, res, next) => {
   // res.send('ALL RECORDS')
@@ -38,7 +42,7 @@ router.post('/', (req, res, next) => {
     })
     .returning('*')
     .then((data) => {
-      res.json(data[0])
+      res.json(data)
     })
     .catch((error) => {
       next(error)
